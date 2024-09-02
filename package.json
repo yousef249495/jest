@@ -4,7 +4,7 @@
   "description": "JavaScript Unit Testing",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --onlyFailures"
   },
   "author": "Yousef",
   "license": "ISC",
