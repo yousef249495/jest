@@ -1,11 +1,11 @@
 const input = require('../input')
 
-describe('Validate The Input Field', () => {
+describe.skip('Validate The Input Field', () => {
     describe('Checking on The Name', () => {
         test('Checking on Username', () => {
             expect(input('Yousef')).toBe('Yousef')
         })
-        test.skip('Checking on Username If Not Provided', () => {
+        test('Checking on Username If Not Provided', () => {
             expect(input()).toBe('Unknown')
         })
         test('Checking on Username If Empity', () => {

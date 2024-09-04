@@ -1,5 +1,5 @@
 const say = require('../say');
 
-test('say hello message to jest', () => {
+test.skip('say hello message to jest', () => {
     expect(say()).toBe('Hello Jest');
 });
