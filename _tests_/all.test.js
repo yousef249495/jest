@@ -14,7 +14,7 @@ describe.skip('Checking by using jest with native code', () => {
     })
 
     /*
-     you can use '.not' before methods like '.toHaveLength' or '.toContain'
+    you can use '.not' before methods like '.toHaveLength' or '.toContain'
     */
     test('If array not contain number 7', () => {
         expect(arr).not.toContain(7)
@@ -106,8 +106,45 @@ expect.extend({
     }
 })
 
-describe('Checking on my own Matchers', () => {
-    test('Check if an element more than 1', () => {
-        expect(10).toBeLargerThan(1)
-    })
+test.skip('Check if an element more than 1', () => {
+    expect(10).toBeLargerThan(1)
 })
+
+expect.extend({
+    toBeBetween(received, start, end) {
+        const pass = received > start && received < end
+        if (pass) {
+            return {
+                message: () => `Expected ${received} to be between ${start} and ${end}`,
+                pass: true
+            }
+        } else {
+            return {
+                message: () => `Error: Expected ${received} to be between ${start} and ${end}`,
+                pass: false
+            }
+        }
+    }
+})
+
+test.skip('Check if an element more than 1', () => {
+    expect(10).toBeBetween(1, 20)
+})
+
+test.skip('Expect anything except null or undefined', () => {
+    expect("A").toEqual(expect.anything())
+    expect(10).toEqual(expect.anything())
+    expect([1, 2, 3, 4]).toEqual(expect.anything())
+})
+
+test.skip('Expect anything constructor', () => {
+    expect("A").toEqual(expect.any(String))
+    expect(10).toEqual(expect.any(Number))
+})
+
+test.skip('Expect array of the main array', () => {
+    let myArray = [1, 2, 3, 4, 5]
+    let arr = [5, 1, 3]
+    expect(myArray).toEqual(expect.arrayContaining(arr))
+})
+

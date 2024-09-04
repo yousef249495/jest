@@ -1,5 +1,5 @@
-const say = require('../say');
+const sayHello = require('../say');
 
 test.skip('say hello message to jest', () => {
-    expect(say()).toBe('Hello Jest');
+    expect(sayHello('Jest')).toBe('Hello Jest');
 });
